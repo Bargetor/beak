@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+pod lib lint --allow-warnings
