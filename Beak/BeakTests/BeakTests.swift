@@ -7,14 +7,20 @@
 //
 
 import Beak
-import Alamofire
-import ObjectMapper
-import AlamofireObjectMapper
 
 class BeakTests {
     
-    func test(){}
+    func test(){
+        let client = BBBPCClient()
+        client.server = "http://localhost:8080"
+        client.urlPath = "/invoke"
+        
+        let testMethod = BPCTestMethod(method: "test.scenic.search", client: client)
+        testMethod.send().callback{scenics, error in
+            print(scenics)
+        }
+        
+    }
     
-   
     
 }
