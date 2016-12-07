@@ -24,7 +24,10 @@
 		2BF604131DF705C30010EA45 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF604061DF705B50010EA45 /* AlamofireObjectMapper.framework */; };
 		2BF604141DF705C30010EA45 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF603F01DF705AF0010EA45 /* Bond.framework */; };
 		2BF604151DF705DB0010EA45 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF604061DF705B50010EA45 /* AlamofireObjectMapper.framework */; };
-		2BF604161DF705DB0010EA45 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF603F01DF705AF0010EA45 /* Bond.framework */; };
+		2BF604721DF7E3D60010EA45 /* BBSegueUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF604711DF7E3D60010EA45 /* BBSegueUtil.swift */; };
+		2BF6049E1DF7E3DF0010EA45 /* BBSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6049D1DF7E3DF0010EA45 /* BBSegue.swift */; };
+		2BF604DB1DF7F84A0010EA45 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF603F01DF705AF0010EA45 /* Bond.framework */; };
+		2BF604DE1DF7FC590010EA45 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +347,9 @@
 		2BE14CA91DF6947200878C80 /* BBLoggerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLoggerUtil.swift; path = util/BBLoggerUtil.swift; sourceTree = "<group>"; };
 		2BF603E61DF705AF0010EA45 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = ../Carthage/Checkouts/Bond/Bond.xcodeproj; sourceTree = "<group>"; };
 		2BF603F91DF705B50010EA45 /* AlamofireObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireObjectMapper.xcodeproj; path = ../Carthage/Checkouts/AlamofireObjectMapper/AlamofireObjectMapper.xcodeproj; sourceTree = "<group>"; };
+		2BF604711DF7E3D60010EA45 /* BBSegueUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBSegueUtil.swift; path = util/BBSegueUtil.swift; sourceTree = "<group>"; };
+		2BF6049D1DF7E3DF0010EA45 /* BBSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBSegue.swift; path = extension/BBSegue.swift; sourceTree = "<group>"; };
+		2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Migrant-dmdzencplkkpdzbxvtbddsrkmxrs/Build/Products/Debug-iphonesimulator/ReactiveKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,8 +369,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF604DE1DF7FC590010EA45 /* ReactiveKit.framework in Frameworks */,
+				2BF604DB1DF7F84A0010EA45 /* Bond.framework in Frameworks */,
 				2BF604151DF705DB0010EA45 /* AlamofireObjectMapper.framework in Frameworks */,
-				2BF604161DF705DB0010EA45 /* Bond.framework in Frameworks */,
 				2BE14CAB1DF69ABD00878C80 /* XCGLogger.framework in Frameworks */,
 				2BA0F8911DF5C7C7006BCB5E /* Alamofire.framework in Frameworks */,
 				2BA0F88F1DF5C7C7006BCB5E /* ObjectMapper.framework in Frameworks */,
@@ -390,6 +397,7 @@
 		2B0F07431DF6889F00384A57 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				2BF6049D1DF7E3DF0010EA45 /* BBSegue.swift */,
 				2B0F07441DF688DD00384A57 /* BBStringExtension.swift */,
 			);
 			name = extension;
@@ -434,6 +442,7 @@
 		2BA0F8881DF5C594006BCB5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */,
 				2BA0F8901DF5C7C7006BCB5E /* Alamofire.framework */,
 				2BA0F8891DF5C594006BCB5E /* Alamofire.framework */,
 			);
@@ -515,6 +524,7 @@
 		2BE14CA81DF6945900878C80 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				2BF604711DF7E3D60010EA45 /* BBSegueUtil.swift */,
 				2BE14CA91DF6947200878C80 /* BBLoggerUtil.swift */,
 			);
 			name = util;
@@ -979,7 +989,9 @@
 			files = (
 				2B0F07451DF688DD00384A57 /* BBStringExtension.swift in Sources */,
 				2BE14CAA1DF6947200878C80 /* BBLoggerUtil.swift in Sources */,
+				2BF6049E1DF7E3DF0010EA45 /* BBSegue.swift in Sources */,
 				2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */,
+				2BF604721DF7E3D60010EA45 /* BBSegueUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
