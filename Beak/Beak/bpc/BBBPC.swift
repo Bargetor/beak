@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
+import XCGLogger
 
 
 open class BPCRequest: Mappable {
@@ -222,10 +223,9 @@ open class BBBPCClient{
         requestBody.method = method
         requestBody.params = params
         let requestBodyJsonString = Mapper().toJSONString(requestBody)
-        BBLoggerUtil.info("request method: \(method) -> params request body is :\(requestBodyJsonString)")
-        
         let urlString = self.buildUrl(self.urlPath!)
         
+        XCGLogger.info("request url: \(urlString) -> params request body is :\(requestBodyJsonString)")
         
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
@@ -239,7 +239,7 @@ open class BBBPCClient{
         Alamofire.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
             
             guard let bpcInnerResponse = response.result.value else{
-                BBLoggerUtil.error("bpc request error")
+                XCGLogger.error("bpc request error")
                 return
             }
             
