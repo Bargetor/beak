@@ -21,7 +21,6 @@
 		1639C08A1D6DD39B0045959E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639C0891D6DD39B0045959E /* Observable.swift */; };
 		1639C08B1D6DD39B0045959E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639C0891D6DD39B0045959E /* Observable.swift */; };
 		1639C08C1D6DD39B0045959E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639C0891D6DD39B0045959E /* Observable.swift */; };
-		165217961D70593E00C9FAEE /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1652178B1D70591E00C9FAEE /* ReactiveKit.framework */; };
 		165217991D70594D00C9FAEE /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165217911D70591E00C9FAEE /* ReactiveKit.framework */; };
 		1652179C1D70595600C9FAEE /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1652178D1D70591E00C9FAEE /* ReactiveKit.framework */; };
 		16559F831D64F4BC00EDD727 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16559F821D64F4BC00EDD727 /* UITableView.swift */; };
@@ -309,7 +308,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				165217961D70593E00C9FAEE /* ReactiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

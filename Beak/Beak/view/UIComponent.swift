@@ -38,7 +38,19 @@ public protocol UIComponentLifecycle{
 }
 
 
+
+private var viewExtensionViewModel: UInt8 = 0
 extension UIView : UIComponent{
+    var viewModel: UIViewModel?{
+        get {
+            return objc_getAssociatedObject(self, &viewExtensionViewModel) as? UIViewModel
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &viewExtensionViewModel, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    
     open var subComponent: Array<UIComponent>?{
         get{
             return self.subComponent
@@ -50,13 +62,14 @@ extension UIView : UIComponent{
     }
     
     open func initUITemplate(_ withViewModel: UIViewModel? = nil) {
+        self.viewModel = withViewModel
         for subView in self.subviews {
             subView.initUITemplate(withViewModel)
         }
     }
     
     open func bindViewModel(viewModel withViewModel: UIViewModel? = nil){
-        
+        self.viewModel = withViewModel
     }
     
     open func layout() {
