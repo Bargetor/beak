@@ -59,6 +59,26 @@ open class BBSegueUtil {
         
     }
     
+    open class func present(to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
+        if let from = getCurrentViewController(){
+            present(from, to: to, animated: animated, completion: completion)
+
+        }
+    }
+    
+    open class func present(_ from: UIViewController, to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
+        if from.isKind(of: UINavigationController.self){
+            let from = from as! UINavigationController
+            from.present(to, animated: animated, completion: completion)
+        }else{
+            from.navigationController?.present(to, animated: animated, completion: completion)
+        }
+    }
+    
+    open class func dismiss(_ from: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil){
+        from.dismiss(animated: animated, completion: completion)
+    }
+    
     open class func pushToMain(_ from: UIViewController, viewControllerName: String, animated: Bool = true){
         pushTo(from, storyboardName: "Main", viewControllerName: viewControllerName, animated: animated)
     }

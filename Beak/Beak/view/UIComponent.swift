@@ -32,6 +32,16 @@ public protocol UIComponent{
     func viewDidLayout()
 }
 
+public protocol UIComponentForViewController{
+    //ui view controller 只能继承与重写这个方法
+    func initUITemplate()
+    
+    func bindViewModel(_ withViewModel: UIViewModel?)
+    
+    func layout()
+    
+}
+
 
 public protocol UIComponentLifecycle{
     
@@ -41,6 +51,7 @@ public protocol UIComponentLifecycle{
 
 private var viewExtensionViewModel: UInt8 = 0
 extension UIView : UIComponent{
+    
     var viewModel: UIViewModel?{
         get {
             return objc_getAssociatedObject(self, &viewExtensionViewModel) as? UIViewModel
@@ -85,19 +96,23 @@ extension UIView : UIComponent{
     }
 }
 
-extension UIViewController{
+extension UIViewController : UIComponentForViewController{
     
-    open func initUITemplate(_ withViewModel: UIViewModel? = nil) {
+    @objc open func initUITemplate() {
+        
+    }
+    
+    open func initUITemplate(_ withViewModel: UIViewModel?) {
         for subView in self.view.subviews {
             subView.initUITemplate(withViewModel)
         }
     }
     
-    open func bindViewModel(viewModel withViewModel: UIViewModel? = nil){
+    open func bindViewModel(_ withViewModel: UIViewModel?){
         
     }
     
-    open func layout() {
+    @objc open func layout() {
         for subView in self.view.subviews {
             subView.layout()
         }

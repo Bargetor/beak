@@ -11,6 +11,9 @@
 		2B0F07401DF67BFD00384A57 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 2B0F073F1DF67BFD00384A57 /* Cartfile */; };
 		2B0F07451DF688DD00384A57 /* BBStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F07441DF688DD00384A57 /* BBStringExtension.swift */; };
 		2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F07471DF68AA300384A57 /* BBBPC.swift */; };
+		2B6202E91E002F6800232CBC /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF605CE1E002D410010EA45 /* Bond.framework */; };
+		2B6202EA1E002F6800232CBC /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */; };
+		2B62032E1E00536800232CBC /* BBBondExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62032D1E00536800232CBC /* BBBondExtension.swift */; };
 		2BA0F88B1DF5C59C006BCB5E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA0F87B1DF5C521006BCB5E /* ObjectMapper.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2BA0F88F1DF5C7C7006BCB5E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA0F87B1DF5C521006BCB5E /* ObjectMapper.framework */; };
 		2BA0F8911DF5C7C7006BCB5E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA0F8901DF5C7C7006BCB5E /* Alamofire.framework */; };
@@ -27,6 +30,9 @@
 		2BF6049E1DF7E3DF0010EA45 /* BBSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6049D1DF7E3DF0010EA45 /* BBSegue.swift */; };
 		2BF604E71DF805F70010EA45 /* UIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF604E61DF805F70010EA45 /* UIComponent.swift */; };
 		2BF604E91DF808790010EA45 /* BBUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF604E81DF808790010EA45 /* BBUIViewExtension.swift */; };
+		2BF605C31E0028FD0010EA45 /* BBArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF605C21E0028FD0010EA45 /* BBArrayExtension.swift */; };
+		2BF605D71E002D4E0010EA45 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF605CE1E002D410010EA45 /* Bond.framework */; };
+		2BF605D91E002D4F0010EA45 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF605D81E002D4F0010EA45 /* ReactiveKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +295,41 @@
 			remoteGlobalIDString = 6AC4580C1BA34C5600054758;
 			remoteInfo = "AlamofireObjectMapper watchOS";
 		};
+		2BF605CD1E002D410010EA45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 16210A3C1D3EC474004AEDF3;
+			remoteInfo = "Bond-iOS";
+		};
+		2BF605CF1E002D410010EA45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 16D30EAE1D6591D300C2435D;
+			remoteInfo = "Bond-macOS";
+		};
+		2BF605D11E002D410010EA45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 16D30ED61D65D11900C2435D;
+			remoteInfo = "Bond-tvOS";
+		};
+		2BF605D31E002D410010EA45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 16210A451D3EC474004AEDF3;
+			remoteInfo = BondTests;
+		};
+		2BF605D51E002D410010EA45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 16887E371D744ABB00EDA099;
+			remoteInfo = "Bond-App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -296,6 +337,7 @@
 		2B0F073F1DF67BFD00384A57 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		2B0F07441DF688DD00384A57 /* BBStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBStringExtension.swift; path = extension/BBStringExtension.swift; sourceTree = "<group>"; };
 		2B0F07471DF68AA300384A57 /* BBBPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBBPC.swift; path = bpc/BBBPC.swift; sourceTree = "<group>"; };
+		2B62032D1E00536800232CBC /* BBBondExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBBondExtension.swift; sourceTree = "<group>"; };
 		2BA0F80A1DF5C4C7006BCB5E /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ../Carthage/Checkouts/ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
 		2BA0F8701DF5C521006BCB5E /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ../Carthage/Checkouts/ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
 		2BA0F8891DF5C594006BCB5E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../Carthage/Checkouts/AlamofireObjectMapper/Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -315,6 +357,9 @@
 		2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Migrant-dmdzencplkkpdzbxvtbddsrkmxrs/Build/Products/Debug-iphonesimulator/ReactiveKit.framework"; sourceTree = "<group>"; };
 		2BF604E61DF805F70010EA45 /* UIComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIComponent.swift; path = view/UIComponent.swift; sourceTree = "<group>"; };
 		2BF604E81DF808790010EA45 /* BBUIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBUIViewExtension.swift; path = extension/BBUIViewExtension.swift; sourceTree = "<group>"; };
+		2BF605C21E0028FD0010EA45 /* BBArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBArrayExtension.swift; path = extension/BBArrayExtension.swift; sourceTree = "<group>"; };
+		2BF605C41E002D410010EA45 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = ../Carthage/Checkouts/Bond/Bond.xcodeproj; sourceTree = "<group>"; };
+		2BF605D81E002D4F0010EA45 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Migrant-dmdzencplkkpdzbxvtbddsrkmxrs/Build/Products/Debug-iphoneos/ReactiveKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +367,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6202E91E002F6800232CBC /* Bond.framework in Frameworks */,
+				2B6202EA1E002F6800232CBC /* ReactiveKit.framework in Frameworks */,
 				2BF604131DF705C30010EA45 /* AlamofireObjectMapper.framework in Frameworks */,
 				2BBAC94C1DF6B99200D346BC /* Alamofire.framework in Frameworks */,
 				2BE14CA71DF6944100878C80 /* XCGLogger.framework in Frameworks */,
@@ -333,6 +380,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF605D91E002D4F0010EA45 /* ReactiveKit.framework in Frameworks */,
+				2BF605D71E002D4E0010EA45 /* Bond.framework in Frameworks */,
 				2BF604151DF705DB0010EA45 /* AlamofireObjectMapper.framework in Frameworks */,
 				2BE14CAB1DF69ABD00878C80 /* XCGLogger.framework in Frameworks */,
 				2BA0F8911DF5C7C7006BCB5E /* Alamofire.framework in Frameworks */,
@@ -347,6 +396,7 @@
 		2B0F07271DF67BAD00384A57 /* dependency */ = {
 			isa = PBXGroup;
 			children = (
+				2BF605C41E002D410010EA45 /* Bond.xcodeproj */,
 				2BF603F91DF705B50010EA45 /* AlamofireObjectMapper.xcodeproj */,
 				2BBAC9331DF6B98C00D346BC /* Alamofire.xcodeproj */,
 				2BE14C771DF6943A00878C80 /* XCGLogger.xcodeproj */,
@@ -361,6 +411,8 @@
 				2BF6049D1DF7E3DF0010EA45 /* BBSegue.swift */,
 				2B0F07441DF688DD00384A57 /* BBStringExtension.swift */,
 				2BF604E81DF808790010EA45 /* BBUIViewExtension.swift */,
+				2BF605C21E0028FD0010EA45 /* BBArrayExtension.swift */,
+				2B62032D1E00536800232CBC /* BBBondExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -404,6 +456,7 @@
 		2BA0F8881DF5C594006BCB5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BF605D81E002D4F0010EA45 /* ReactiveKit.framework */,
 				2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */,
 				2BA0F8901DF5C7C7006BCB5E /* Alamofire.framework */,
 				2BA0F8891DF5C594006BCB5E /* Alamofire.framework */,
@@ -515,6 +568,18 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		2BF605C51E002D410010EA45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BF605CE1E002D410010EA45 /* Bond.framework */,
+				2BF605D01E002D410010EA45 /* Bond.framework */,
+				2BF605D21E002D410010EA45 /* Bond.framework */,
+				2BF605D41E002D410010EA45 /* BondTests.xctest */,
+				2BF605D61E002D410010EA45 /* Bond-App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -606,6 +671,10 @@
 				{
 					ProductGroup = 2BF603FA1DF705B50010EA45 /* Products */;
 					ProjectRef = 2BF603F91DF705B50010EA45 /* AlamofireObjectMapper.xcodeproj */;
+				},
+				{
+					ProductGroup = 2BF605C51E002D410010EA45 /* Products */;
+					ProjectRef = 2BF605C41E002D410010EA45 /* Bond.xcodeproj */;
 				},
 				{
 					ProductGroup = 2BA0F8711DF5C521006BCB5E /* Products */;
@@ -881,6 +950,41 @@
 			remoteRef = 2BF604111DF705B50010EA45 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2BF605CE1E002D410010EA45 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 2BF605CD1E002D410010EA45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2BF605D01E002D410010EA45 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 2BF605CF1E002D410010EA45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2BF605D21E002D410010EA45 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 2BF605D11E002D410010EA45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2BF605D41E002D410010EA45 /* BondTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BondTests.xctest;
+			remoteRef = 2BF605D31E002D410010EA45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2BF605D61E002D410010EA45 /* Bond-App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Bond-App.app";
+			remoteRef = 2BF605D51E002D410010EA45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -908,11 +1012,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0F07451DF688DD00384A57 /* BBStringExtension.swift in Sources */,
+				2BF605C31E0028FD0010EA45 /* BBArrayExtension.swift in Sources */,
 				2BF604E71DF805F70010EA45 /* UIComponent.swift in Sources */,
 				2BE14CAA1DF6947200878C80 /* BBLoggerUtil.swift in Sources */,
 				2BF6049E1DF7E3DF0010EA45 /* BBSegue.swift in Sources */,
 				2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */,
 				2BF604E91DF808790010EA45 /* BBUIViewExtension.swift in Sources */,
+				2B62032E1E00536800232CBC /* BBBondExtension.swift in Sources */,
 				2BF604721DF7E3D60010EA45 /* BBSegueUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
