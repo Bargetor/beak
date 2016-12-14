@@ -25,4 +25,8 @@ extension String {
     public func length() -> Int{
         return self.characters.count
     }
+    
+    public func format(arguments: CVarArg...) -> String{
+        return String.init(format: self, arguments)
+    }
 }
