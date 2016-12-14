@@ -41,8 +41,15 @@ open class BBSegueUtil {
             vcResult = window.rootViewController
         }
         
+        
         if vcResult!.isKind(of: UINavigationController.self){
-            return vcResult?.childViewControllers.last
+            vcResult = vcResult?.childViewControllers.last
+        }
+        
+        if(vcResult?.presentedViewController != nil){
+            return vcResult?.presentedViewController
+        }else if(vcResult?.presentingViewController != nil){
+            return vcResult?.presentingViewController
         }else{
             return vcResult
         }
@@ -62,7 +69,6 @@ open class BBSegueUtil {
     open class func present(to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
         if let from = getCurrentViewController(){
             present(from, to: to, animated: animated, completion: completion)
-
         }
     }
     

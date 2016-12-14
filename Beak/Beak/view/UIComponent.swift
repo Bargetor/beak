@@ -9,14 +9,14 @@
 import Foundation
 import Bond
 
-public protocol UIViewModel{
+@objc public protocol UIViewModel{
     //init function 不能有任何数据加载的代码，否则很容易导致在UI未绑定前，数据已经更新
     
     //    func bidirectionalBind(component: UIComponent, data: AnyObject?)
     
 }
 
-public protocol UIComponent{
+@objc public protocol UIComponent{
     var subComponent: Array<UIComponent>?{ get set }
     
     func initUITemplate(_ withViewModel: UIViewModel?)
@@ -32,9 +32,9 @@ public protocol UIComponent{
     func viewDidLayout()
 }
 
-public protocol UIComponentForViewController{
+@objc public protocol UIComponentForViewController{
     //ui view controller 只能继承与重写这个方法
-    func initUITemplate()
+    func initUITemplate(_ withViewModel: UIViewModel?)
     
     func bindViewModel(_ withViewModel: UIViewModel?)
     
@@ -98,10 +98,6 @@ extension UIView : UIComponent{
 
 extension UIViewController : UIComponentForViewController{
     
-    @objc open func initUITemplate() {
-        
-    }
-    
     open func initUITemplate(_ withViewModel: UIViewModel?) {
         for subView in self.view.subviews {
             subView.initUITemplate(withViewModel)
@@ -112,7 +108,7 @@ extension UIViewController : UIComponentForViewController{
         
     }
     
-    @objc open func layout() {
+    open func layout() {
         for subView in self.view.subviews {
             subView.layout()
         }
