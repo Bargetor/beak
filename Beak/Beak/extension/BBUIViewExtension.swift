@@ -26,39 +26,22 @@ extension UIView {
     
 }
 
-
-public var isAutoAdjustMinTouchRect: Bool = false
 extension UIView{
-    public var autoAdjustMinTouchRect: Bool{
-        get{
-            return objc_getAssociatedObject(self, &isAutoAdjustMinTouchRect) as! Bool
-        }
-        set(newValue){
-            objc_setAssociatedObject(self, &isAutoAdjustMinTouchRect, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-        }
-    }
     
-    open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    open func inMinTouchRect(inside point: CGPoint) -> Bool{
+        
         //获取当前button的实际大小
         var bounds = self.bounds
         
-        if(!self.autoAdjustMinTouchRect){
-            return bounds.contains(point)
-        }else{
-            //若原热区小于44x44，则放大热区，否则保持原大小不变
-            
-            let widthDelta = max(44.0 - bounds.size.width, 0)
-            
-            let heightDelta = max(44.0 - bounds.size.height, 0)
-            //扩大bounds
-            
-            bounds = bounds.insetBy(dx: -0.5 * widthDelta, dy: -0.5 * heightDelta)
-            
-            //如果点击的点 在 新的bounds里，就返回YES
-            
-            return bounds.contains(point)
-            
-        }
+        //若原热区小于44x44，则放大热区，否则保持原大小不变
+        let widthDelta = max(44.0 - bounds.size.width, 0)
         
+        let heightDelta = max(44.0 - bounds.size.height, 0)
+        
+        //扩大bounds
+        bounds = bounds.insetBy(dx: -0.5 * widthDelta, dy: -0.5 * heightDelta)
+        
+        //如果点击的点 在 新的bounds里，就返回YES
+        return bounds.contains(point)
     }
 }
