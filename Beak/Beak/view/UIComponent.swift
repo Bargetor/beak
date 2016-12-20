@@ -17,7 +17,6 @@ import Bond
 }
 
 @objc public protocol UIComponent{
-    associatedtype ViewModelType : UIViewModel
     
     func initUITemplate(_ withViewModel: UIViewModel?)
     
@@ -51,11 +50,10 @@ public protocol UIComponentLifecycle{
 
 private var viewExtensionViewModel: UInt8 = 0
 extension UIView : UIComponent{
-    public typealias ViewModelType = UIViewModel
 
-    open var viewModel: ViewModelType?{
+    open var viewModel: UIViewModel?{
         get {
-            return objc_getAssociatedObject(self, &viewExtensionViewModel) as? ViewModelType
+            return objc_getAssociatedObject(self, &viewExtensionViewModel) as? UIViewModel
         }
         set(newValue) {
             objc_setAssociatedObject(self, &viewExtensionViewModel, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
