@@ -46,6 +46,29 @@ extension Array{
             self.append(element)
         }
     }
+    
+    public func difference <T: Equatable> (values: [T]...) -> [T] {
+        
+        var result = [T]()
+        
+        elements: for e in self {
+            if let element = e as? T {
+                for value in values {
+                    //  if a value is in both self and one of the values arrays
+                    //  jump to the next iteration of the outer loop
+                    if value.contains(element) {
+                        continue elements
+                    }
+                }
+                
+                //  element it's only in self
+                result.append(element)
+            }
+        }
+        
+        return result
+        
+    }
 }
 
 extension Array where Element: Equatable {
@@ -59,6 +82,11 @@ extension Array where Element: Equatable {
         if let index = self.index(of: object) {
             self.remove(at: index)
         }
+    }
+    
+    public func toUnsafeMutablePointer() -> UnsafeMutablePointer<Element>{
+        let pointer: UnsafeMutablePointer<Element> = UnsafeMutablePointer(mutating: self)
+        return pointer
     }
     
 }

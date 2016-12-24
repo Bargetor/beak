@@ -90,3 +90,17 @@ extension UIImageView{
         }
     }
 }
+
+extension UIButton{
+    open func setTitleColor(_ color: UIColor?){
+        self.setTitleColor(color, for: .normal)
+    }
+    
+    open func setTitle(_ title: String?){
+        self.setTitle(title, for: .normal)
+    }
+    
+    open func setTitleFont(_ font: UIFont){
+        self.titleLabel?.font = font
+    }
+}

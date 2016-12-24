@@ -11,6 +11,7 @@
 		2B0F07401DF67BFD00384A57 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 2B0F073F1DF67BFD00384A57 /* Cartfile */; };
 		2B0F07451DF688DD00384A57 /* BBStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F07441DF688DD00384A57 /* BBStringExtension.swift */; };
 		2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F07471DF68AA300384A57 /* BBBPC.swift */; };
+		2B4FD0761E0C04F700192121 /* BBCGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4FD0751E0C04F600192121 /* BBCGFloatExtension.swift */; };
 		2B6202E91E002F6800232CBC /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF605CE1E002D410010EA45 /* Bond.framework */; };
 		2B6202EA1E002F6800232CBC /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF604DC1DF7F84A0010EA45 /* ReactiveKit.framework */; };
 		2B6203371E018E9E00232CBC /* BBDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6203361E018E9E00232CBC /* BBDateExtension.swift */; };
@@ -338,6 +339,7 @@
 		2B0F073F1DF67BFD00384A57 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		2B0F07441DF688DD00384A57 /* BBStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBStringExtension.swift; path = extension/BBStringExtension.swift; sourceTree = "<group>"; };
 		2B0F07471DF68AA300384A57 /* BBBPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBBPC.swift; path = bpc/BBBPC.swift; sourceTree = "<group>"; };
+		2B4FD0751E0C04F600192121 /* BBCGFloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBCGFloatExtension.swift; path = extension/BBCGFloatExtension.swift; sourceTree = "<group>"; };
 		2B6203361E018E9E00232CBC /* BBDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBDateExtension.swift; path = extension/BBDateExtension.swift; sourceTree = "<group>"; };
 		2B62037F1E01B74000232CBC /* BBBondExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBBondExtension.swift; path = extension/BBBondExtension.swift; sourceTree = "<group>"; };
 		2BA0F80A1DF5C4C7006BCB5E /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ../Carthage/Checkouts/ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				2BF604E81DF808790010EA45 /* BBUIViewExtension.swift */,
 				2BF605C21E0028FD0010EA45 /* BBArrayExtension.swift */,
 				2B6203361E018E9E00232CBC /* BBDateExtension.swift */,
+				2B4FD0751E0C04F600192121 /* BBCGFloatExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */,
 				2BF604E91DF808790010EA45 /* BBUIViewExtension.swift in Sources */,
 				2BF604721DF7E3D60010EA45 /* BBSegueUtil.swift in Sources */,
+				2B4FD0761E0C04F700192121 /* BBCGFloatExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
