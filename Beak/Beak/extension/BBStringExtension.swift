@@ -27,6 +27,6 @@ extension String {
     }
     
     public func format(arguments: CVarArg...) -> String{
-        return String.init(format: self, arguments)
+        return String(format: self, arguments: arguments)
     }
 }
