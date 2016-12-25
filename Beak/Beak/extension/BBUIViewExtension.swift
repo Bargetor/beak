@@ -58,9 +58,9 @@ extension UIView{
 
 public var isAutoAdjustMinTouchRect: Bool = false
 extension UIImageView{
-    public var autoAdjustMinTouchRect: Bool{
+    public var autoAdjustMinTouchRect: Bool?{
         get{
-            return objc_getAssociatedObject(self, &isAutoAdjustMinTouchRect) as! Bool
+            return objc_getAssociatedObject(self, &isAutoAdjustMinTouchRect) as? Bool
         }
         set(newValue){
             objc_setAssociatedObject(self, &isAutoAdjustMinTouchRect, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
@@ -71,7 +71,7 @@ extension UIImageView{
         //获取当前button的实际大小
         var bounds = self.bounds
         
-        if(!self.autoAdjustMinTouchRect){
+        if let auto = self.autoAdjustMinTouchRect, !auto{
             return super.point(inside: point, with: event)
         }else{
             //若原热区小于44x44，则放大热区，否则保持原大小不变
@@ -104,3 +104,4 @@ extension UIButton{
         self.titleLabel?.font = font
     }
 }
+
