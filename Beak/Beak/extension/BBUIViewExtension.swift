@@ -103,5 +103,9 @@ extension UIButton{
     open func setTitleFont(_ font: UIFont){
         self.titleLabel?.font = font
     }
+    
+    open func setImage(_ image: UIImage?){
+        self.setImage(image, for: .normal)
+    }
 }
 
