@@ -12,6 +12,7 @@ extension Date{
     public func format(formatStr: String) -> String{
         let format = DateFormatter()
         format.dateFormat = formatStr
+        format.timeZone = TimeZone(abbreviation: "UTC")
         return format.string(from: self)
     }
 }
