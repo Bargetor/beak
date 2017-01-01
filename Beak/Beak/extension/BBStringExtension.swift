@@ -29,4 +29,31 @@ extension String {
     public func format(arguments: CVarArg...) -> String{
         return String(format: self, arguments: arguments)
     }
+    
+    public mutating func replaceSubrange(_ range: NSRange, with replacementString: String) -> String {
+        if(range.location >= self.characters.count){
+            self.append(replacementString)
+            return self
+        }
+        
+        
+        if let newRange: Range<String.Index> = self.range(for: range){
+            self.replaceSubrange(newRange, with: replacementString)
+        }
+        
+        return self
+    }
+    
+    func range(for range: NSRange) -> Range<String.Index>? {
+        guard range.location != NSNotFound else { return nil }
+        
+        guard let fromUTFIndex = self.utf16.index(self.utf16.startIndex, offsetBy: range.location, limitedBy: self.utf16.endIndex) else { return nil }
+        guard let toUTFIndex = self.utf16.index(fromUTFIndex, offsetBy: range.length, limitedBy: self.utf16.endIndex) else { return nil }
+        guard let fromIndex = String.Index(fromUTFIndex, within: self) else { return nil }
+        guard let toIndex = String.Index(toUTFIndex, within: self) else { return nil }
+        
+        return fromIndex ..< toIndex
+    }
+    
 }
+
