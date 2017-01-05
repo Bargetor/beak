@@ -23,6 +23,7 @@
 		2BAC25771DF5A73500655F19 /* BeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC25761DF5A73500655F19 /* BeakTests.swift */; };
 		2BAC25791DF5A73500655F19 /* Beak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAC256B1DF5A73500655F19 /* Beak.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BBAC94C1DF6B99200D346BC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBAC93F1DF6B98C00D346BC /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2BCE687E1E1EA5FB000A5B0B /* UIAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCE687D1E1EA5FB000A5B0B /* UIAnimation.swift */; };
 		2BE14CA71DF6944100878C80 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE14C981DF6943A00878C80 /* XCGLogger.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2BE14CAA1DF6947200878C80 /* BBLoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE14CA91DF6947200878C80 /* BBLoggerUtil.swift */; };
 		2BE14CAB1DF69ABD00878C80 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE14C981DF6943A00878C80 /* XCGLogger.framework */; };
@@ -353,6 +354,7 @@
 		2BAC25761DF5A73500655F19 /* BeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeakTests.swift; sourceTree = "<group>"; };
 		2BAC25781DF5A73500655F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BBAC9331DF6B98C00D346BC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		2BCE687D1E1EA5FB000A5B0B /* UIAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAnimation.swift; path = view/UIAnimation.swift; sourceTree = "<group>"; };
 		2BE14C771DF6943A00878C80 /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = ../Carthage/Checkouts/XCGLogger/Sources/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		2BE14CA91DF6947200878C80 /* BBLoggerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLoggerUtil.swift; path = util/BBLoggerUtil.swift; sourceTree = "<group>"; };
 		2BF603F91DF705B50010EA45 /* AlamofireObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireObjectMapper.xcodeproj; path = ../Carthage/Checkouts/AlamofireObjectMapper/AlamofireObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				2BF604E61DF805F70010EA45 /* UIComponent.swift */,
+				2BCE687D1E1EA5FB000A5B0B /* UIAnimation.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				2B0F07481DF68AA300384A57 /* BBBPC.swift in Sources */,
 				2BF604E91DF808790010EA45 /* BBUIViewExtension.swift in Sources */,
 				2BF604721DF7E3D60010EA45 /* BBSegueUtil.swift in Sources */,
+				2BCE687E1E1EA5FB000A5B0B /* UIAnimation.swift in Sources */,
 				2B4FD0761E0C04F700192121 /* BBCGFloatExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
