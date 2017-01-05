@@ -9,10 +9,12 @@
 import Foundation
 
 extension Date{
-    public func format(formatStr: String) -> String{
+    public func format(formatStr: String, isForUTC: Bool = false) -> String{
         let format = DateFormatter()
         format.dateFormat = formatStr
-        format.timeZone = TimeZone(abbreviation: "UTC")
+        if isForUTC{
+            format.timeZone = TimeZone(abbreviation: "UTC")
+        }
         return format.string(from: self)
     }
 }

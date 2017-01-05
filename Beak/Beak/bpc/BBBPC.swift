@@ -442,9 +442,10 @@ open class BPCDateTransform: DateTransform {
     open override func transformFromJSON(_ value: Any?) -> Date? {
         if let timeInt = value as? Double {
             let date = Date(timeIntervalSince1970: TimeInterval(timeInt / 1000.0))
-            let zone = TimeZone.current
-            let interval = TimeInterval(zone.secondsFromGMT(for: date))
-            return date.addingTimeInterval(interval)
+//            let zone = TimeZone.current
+//            let interval = TimeInterval(zone.secondsFromGMT(for: date))
+//            return date.addingTimeInterval(interval)
+            return date
         }
         return nil
     }
