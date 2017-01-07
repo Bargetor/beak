@@ -68,30 +68,47 @@ extension UIImageView{
     }
     
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        //获取当前button的实际大小
-        var bounds = self.bounds
         
         if let auto = self.autoAdjustMinTouchRect, !auto{
             return super.point(inside: point, with: event)
         }else{
-            //若原热区小于44x44，则放大热区，否则保持原大小不变
-            
-            let widthDelta = max(44.0 - bounds.size.width, 0)
-            
-            let heightDelta = max(44.0 - bounds.size.height, 0)
-            //扩大bounds
-            
-            bounds = bounds.insetBy(dx: -0.5 * widthDelta, dy: -0.5 * heightDelta)
-            
-            //如果点击的点 在 新的bounds里，就返回YES
-            
-            return bounds.contains(point)
-            
+           return self.inMinTouchRect(inside: point)
         }
     }
 }
 
+public extension UIImage {
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+
 extension UIButton{
+    public var autoAdjustMinTouchRect: Bool?{
+        get{
+            return objc_getAssociatedObject(self, &isAutoAdjustMinTouchRect) as? Bool
+        }
+        set(newValue){
+            objc_setAssociatedObject(self, &isAutoAdjustMinTouchRect, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if let auto = self.autoAdjustMinTouchRect, !auto{
+            return super.point(inside: point, with: event)
+        }else{
+            return self.inMinTouchRect(inside: point)
+        }
+    }
+    
     open func setTitleColor(_ color: UIColor?){
         self.setTitleColor(color, for: .normal)
     }
