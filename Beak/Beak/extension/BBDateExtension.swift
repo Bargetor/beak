@@ -49,82 +49,82 @@ extension Date{
         return (self.compare(date) == ComparisonResult.orderedAscending)
     }
     
-    
-    // MARK: Getter
-    
-    /**
-     Date year
-     */
-    public var year : Int {
-        get {
-            return getComponent(.year)
-        }
-    }
-    
-    /**
-     Date month
-     */
-    public var month : Int {
-        get {
-            return getComponent(.month)
-        }
-    }
-    
-    /**
-     Date weekday
-     */
-    public var weekday : Int {
-        get {
-            return getComponent(.weekday)
-        }
-    }
-    
-    /**
-     Date weekMonth
-     */
-    public var weekMonth : Int {
-        get {
-            return getComponent(.weekOfMonth)
-        }
-    }
-    
-    
-    /**
-     Date days
-     */
-    public var days : Int {
-        get {
-            return getComponent(.day)
-        }
-    }
-    
-    /**
-     Date hours
-     */
-    public var hours : Int {
-        
-        get {
-            return getComponent(.hour)
-        }
-    }
-    
-    /**
-     Date minuts
-     */
-    public var minutes : Int {
-        get {
-            return getComponent(.minute)
-        }
-    }
-    
-    /**
-     Date seconds
-     */
-    public var seconds : Int {
-        get {
-            return getComponent(.second)
-        }
-    }
+//    
+//    // MARK: Getter
+//    
+//    /**
+//     Date year
+//     */
+//    public var year : Int {
+//        get {
+//            return getComponent(.year)
+//        }
+//    }
+//    
+//    /**
+//     Date month
+//     */
+//    public var month : Int {
+//        get {
+//            return getComponent(.month)
+//        }
+//    }
+//    
+//    /**
+//     Date weekday
+//     */
+//    public var weekday : Int {
+//        get {
+//            return getComponent(.weekday)
+//        }
+//    }
+//    
+//    /**
+//     Date weekMonth
+//     */
+//    public var weekMonth : Int {
+//        get {
+//            return getComponent(.weekOfMonth)
+//        }
+//    }
+//    
+//    
+//    /**
+//     Date days
+//     */
+//    public var days : Int {
+//        get {
+//            return getComponent(.day)
+//        }
+//    }
+//    
+//    /**
+//     Date hours
+//     */
+//    public var hours : Int {
+//        
+//        get {
+//            return getComponent(.hour)
+//        }
+//    }
+//    
+//    /**
+//     Date minuts
+//     */
+//    public var minutes : Int {
+//        get {
+//            return getComponent(.minute)
+//        }
+//    }
+//    
+//    /**
+//     Date seconds
+//     */
+//    public var seconds : Int {
+//        get {
+//            return getComponent(.second)
+//        }
+//    }
     
     /**
      Returns the value of the NSDate component
