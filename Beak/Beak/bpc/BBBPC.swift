@@ -74,6 +74,26 @@ open class BPCParams: Mappable{
     }
 }
 
+open class BPCPageSearchParams: BPCParams{
+    open var pageNum: Int?
+    open var pageSize: Int?
+    
+    open override func mapping(map: Map) {
+        super.mapping(map: map)
+        pageNum    <- map["pageNum"]
+        pageSize   <- map["pageSize"]
+    }
+}
+
+open class BPCKeywordSearchParams: BPCPageSearchParams{
+    open var keyword: String?
+    
+    open override func mapping(map: Map) {
+        super.mapping(map: map)
+        keyword   <- map["keyword"]
+    }
+}
+
 open class BPCResponse<T : Mappable>: Mappable {
     var bpc: String?
     var id: String?
