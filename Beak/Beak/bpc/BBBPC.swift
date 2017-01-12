@@ -209,13 +209,13 @@ open class BBBPCClient{
     open func request<T: Mappable>(_ method: String, params: BPCParams, success: ((_ result: T?, _ error: BPCError?) -> Void)?){
         self.baseRequest(method, params: params, success: {response in
             var result: T?
-            if let resultJson = response.result{
+            if let resultJson = response?.result{
                 result = Mapper<T>().map(JSONObject: resultJson)
             }
             
             if let success = success{
-                success(result, response.error)
-                self.processError(response.error)
+                success(result, response?.error)
+                self.processError(response?.error)
             }
             
             
@@ -225,19 +225,19 @@ open class BBBPCClient{
     open func requestArray<T: Mappable>(_ method: String, params: BPCParams, success: ((_ results: [T]?, _ error: BPCError?) -> Void)?){
         self.baseRequest(method, params: params, success: {response in
             var results: [T]?
-            if let resultsJson = response.result{
+            if let resultsJson = response?.result{
                 results = Mapper<T>().mapArray(JSONObject: resultsJson)
             }
             
             if let success = success{
-                success(results, response.error)
-                self.processError(response.error)
+                success(results, response?.error)
+                self.processError(response?.error)
             }
         })
     }
     
     
-    fileprivate func baseRequest(_ method: String, params: BPCParams, success: @escaping (_ response: BPCInnerResponse) -> Void){
+    fileprivate func baseRequest(_ method: String, params: BPCParams, success: @escaping (_ response: BPCInnerResponse?) -> Void){
         
         let requestBody = self.buildBPCRequestBody()
         requestBody.method = method
@@ -259,7 +259,8 @@ open class BBBPCClient{
         Alamofire.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
             
             guard let bpcInnerResponse = response.result.value else{
-                XCGLogger.error("bpc request error")
+                XCGLogger.error(response.result.error)
+                success(nil)
                 return
             }
             
