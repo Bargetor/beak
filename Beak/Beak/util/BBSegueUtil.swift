@@ -116,7 +116,35 @@ open class BBSegueUtil {
             let from = from as! UINavigationController
             from.popViewController(animated: animated)
         }else{
-            from.navigationController?.popViewController(animated: animated)
+            let _ = from.navigationController?.popViewController(animated: animated)
+        }
+    }
+    
+    open class func popTo(_ from: UIViewController, toType: UIViewController.Type, animated: Bool = true){
+        var nav: UINavigationController?
+        
+        if from.isKind(of: UINavigationController.self){
+            nav = from as? UINavigationController
+        }else{
+            nav = from.navigationController
+        }
+        
+        guard let currentNav = nav else {return}
+        for vc in currentNav.viewControllers{
+            if vc.isKind(of: toType){
+                popTo(from, to: vc, animated: animated)
+                return
+            }
+        }
+        
+    }
+    
+    open class func popTo(_ from: UIViewController, to: UIViewController, animated: Bool = true){
+        if from.isKind(of: UINavigationController.self){
+            let from = from as! UINavigationController
+            from.popToViewController(to, animated: animated)
+        }else{
+            let _ = from.navigationController?.popToViewController(to, animated: animated)
         }
     }
 }
