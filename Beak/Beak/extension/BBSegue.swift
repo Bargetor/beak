@@ -30,8 +30,12 @@ extension UIViewController{
         BBSegueUtil.pop(self)
     }
     
-    public func popTo(to: UIViewController.Type){
+    public func pop(type to: UIViewController.Type){
         BBSegueUtil.popTo(self, toType: to)
+    }
+    
+    public func pop(vc to: UIViewController){
+        BBSegueUtil.popTo(self, to: to)
     }
 }
 
