@@ -12,3 +12,6 @@
 	url = https://github.com/ReactiveKit/ReactiveKit.git
 [submodule "Carthage/Checkouts/Bond"]
 	url = https://github.com/ReactiveKit/Bond.git
+[submodule "Carthage/Checkouts/XCGLogger"]
+	path = Carthage/Checkouts/XCGLogger
+	url = https://github.com/DaveWoodCom/XCGLogger.git

@@ -10,7 +10,8 @@
     "D712610954CA9BFA7A6E793AC8CA9FD9B6557F56" : 9223372036854775807,
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
     "D78924967B5ECB0A1D20E197FAB93ACBFA47F0D1" : 9223372036854775807,
-    "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : 9223372036854775807
+    "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : 9223372036854775807,
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1BB7ABC3-E24F-4B10-8D17-D40A47C9CFBE",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
@@ -20,7 +21,8 @@
     "D712610954CA9BFA7A6E793AC8CA9FD9B6557F56" : "beak\/Carthage\/Checkouts\/AlamofireObjectMapper\/",
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "beak\/Carthage\/Checkouts\/SwiftyJSON\/",
     "D78924967B5ECB0A1D20E197FAB93ACBFA47F0D1" : "beak\/Carthage\/Checkouts\/Bond\/",
-    "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : "beak\/Carthage\/Checkouts\/ObjectMapper\/"
+    "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : "beak\/Carthage\/Checkouts\/ObjectMapper\/",
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : "beak\/Carthage\/Checkouts\/XCGLogger\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Beak",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -50,6 +52,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DaveWoodCom\/XCGLogger.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CD1557C3AE966BEDF3490D85F9712687801B146C"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tristanhimmelman\/AlamofireObjectMapper.git",
