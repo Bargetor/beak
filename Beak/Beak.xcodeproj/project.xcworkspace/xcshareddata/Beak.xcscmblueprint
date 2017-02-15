@@ -10,6 +10,7 @@
     "D712610954CA9BFA7A6E793AC8CA9FD9B6557F56" : 9223372036854775807,
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
     "D78924967B5ECB0A1D20E197FAB93ACBFA47F0D1" : 9223372036854775807,
+    "3EF818FD616DF216AF4910FC08E6433D16751E9F" : 9223372036854775807,
     "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : 9223372036854775807,
     "CD1557C3AE966BEDF3490D85F9712687801B146C" : 9223372036854775807
   },
@@ -21,6 +22,7 @@
     "D712610954CA9BFA7A6E793AC8CA9FD9B6557F56" : "beak\/Carthage\/Checkouts\/AlamofireObjectMapper\/",
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "beak\/Carthage\/Checkouts\/SwiftyJSON\/",
     "D78924967B5ECB0A1D20E197FAB93ACBFA47F0D1" : "beak\/Carthage\/Checkouts\/Bond\/",
+    "3EF818FD616DF216AF4910FC08E6433D16751E9F" : "Migrant-iOS\/",
     "58AAB0051E2B4EEDF1845A552012E6D0EBAD9127" : "beak\/Carthage\/Checkouts\/ObjectMapper\/",
     "CD1557C3AE966BEDF3490D85F9712687801B146C" : "beak\/Carthage\/Checkouts\/XCGLogger\/"
   },
@@ -32,6 +34,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Bargetor\/beak.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B7A60A63EDA9543DE7C5E1B889A79FB2403C0A3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.coding.net:bargetor\/Migrant-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3EF818FD616DF216AF4910FC08E6433D16751E9F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Hearst-DD\/ObjectMapper.git",
