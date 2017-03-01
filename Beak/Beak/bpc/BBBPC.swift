@@ -191,6 +191,8 @@ open class BBBPCClient{
     open var userid: Int?
     open var token: String?
     
+    open var timeout: TimeInterval = 10
+    
     fileprivate var errorHandlers = Array<BBBPCErrorHandler>()
     
     public init(){
@@ -250,17 +252,22 @@ open class BBBPCClient{
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        
         urlRequest.httpBody = requestBodyJsonString?.data(using: .utf8)
-        
         urlRequest.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
+        urlRequest.timeoutInterval = self.timeout
         
         
         Alamofire.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
             
-            guard let bpcInnerResponse = response.result.value else{
-                XCGLogger.error(response.result.error)
-                success(nil)
+            guard var bpcInnerResponse = response.result.value else{
+                let error = response.result.error
+                XCGLogger.error(error)
+                
+                let errorResponse = BPCInnerResponse()
+                errorResponse.error = BPCError()
+                errorResponse.error?.msg = error.debugDescription
+                
+                success(errorResponse)
                 return
             }
             
