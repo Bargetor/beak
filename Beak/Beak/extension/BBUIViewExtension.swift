@@ -10,12 +10,23 @@ import Foundation
 
 extension UIView {
     
-    open func setTapGesture(_ target: AnyObject?, action: Selector){
+    @discardableResult
+    open func setTapGesture(_ target: AnyObject?, action: Selector) -> UITapGestureRecognizer{
         self.isUserInteractionEnabled = true
         
         let tapGR = UITapGestureRecognizer(target: target, action: action)
         //        tapGR.cancelsTouchesInView = false
         self.addGestureRecognizer(tapGR)
+        return tapGR
+    }
+    
+    @discardableResult
+    open func setPanGesture(_ target: AnyObject?, selector: Selector) -> UIPanGestureRecognizer{
+        self.isUserInteractionEnabled = true
+        let panGR = UIPanGestureRecognizer(target: target, action: selector)
+        self.addGestureRecognizer(panGR)
+        
+        return panGR
     }
     
     open func removeAllSubView(){
