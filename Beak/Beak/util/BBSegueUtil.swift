@@ -56,6 +56,11 @@ open class BBSegueUtil {
         
     }
     
+    open class func pushTo(to: UIViewController, animated: Bool = true){
+        guard let from = self.getCurrentViewController() else {return}
+        self.pushTo(from, to: to, animated: animated)
+    }
+    
     open class func pushTo(_ from: UIViewController, to: UIViewController, animated: Bool = true){
         if from.isKind(of: UINavigationController.self){
             let from = from as! UINavigationController
