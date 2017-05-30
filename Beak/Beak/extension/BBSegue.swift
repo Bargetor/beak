@@ -21,6 +21,10 @@ extension UIViewController{
         }
     }
     
+    public func pushForNewNav(_ to: UIViewController){
+        BBSegueUtil.pushForNewNav(to: to)
+    }
+    
     public func pushTo(_ to: UIViewController, params: AnyObject? = nil){
         to.segueParam = params
         BBSegueUtil.pushTo(self, to: to)
@@ -48,13 +52,13 @@ extension UIView{
         BBSegueUtil.mainStoryboardTo(vc, viewControllerName: viewControllerName, param: param)
     }
     
-    public func pushTo(_ to: UIViewController, params: AnyObject? = nil){
+    public func pushTo(_ to: UIViewController, params: AnyObject? = nil, navigationDelegate: UINavigationControllerDelegate? = nil){
         guard let vc = BBSegueUtil.getCurrentViewController() else{
             return
         }
         
         to.segueParam = params
-        BBSegueUtil.pushTo(vc, to: to)
+        BBSegueUtil.pushTo(vc, to: to, navigationDelegate: navigationDelegate)
     }
     
     public func pop(){
