@@ -88,6 +88,26 @@ extension UIImageView{
     }
 }
 
+public extension UILabel{
+    public var autoAdjustMinTouchRect: Bool?{
+        get{
+            return objc_getAssociatedObject(self, &isAutoAdjustMinTouchRect) as? Bool
+        }
+        set(newValue){
+            objc_setAssociatedObject(self, &isAutoAdjustMinTouchRect, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        
+        if let auto = self.autoAdjustMinTouchRect, !auto{
+            return super.point(inside: point, with: event)
+        }else{
+            return self.inMinTouchRect(inside: point)
+        }
+    }
+}
+
 public extension UIImage {
     public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
