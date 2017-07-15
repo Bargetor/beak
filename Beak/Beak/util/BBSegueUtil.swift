@@ -97,6 +97,22 @@ open class BBSegueUtil {
         }
     }
     
+    open class func presentForNewNav(to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
+        if let from = getCurrentViewController(){
+            presentForNewNav(from, to: to, animated: animated, completion: completion)
+        }
+    }
+    
+    open class func presentForNewNav(_ from: UIViewController, to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
+        if from.isKind(of: UINavigationController.self){
+            let from = from as! UINavigationController
+            from.present(to, animated: animated, completion: completion)
+        }else{
+            let nav = UINavigationController(rootViewController: to)
+            from.navigationController?.present(nav, animated: animated, completion: completion)
+        }
+    }
+    
     open class func dismiss(_ from: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil){
         from.dismiss(animated: animated, completion: completion)
     }
