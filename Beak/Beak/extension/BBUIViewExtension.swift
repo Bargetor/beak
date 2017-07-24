@@ -158,7 +158,17 @@ extension UIButton{
 }
 
 extension UIView{
-    open func addBorder(edges: UIRectEdge, color: UIColor = UIColor.white, thickness: CGFloat = 1.0) -> [UIView] {
+    open func addBorder(edges: [UIRectEdge], color: UIColor = UIColor.white, thickness: CGFloat = 1.0, inset: CGFloat = 0) -> [UIView]{
+        var allView: [UIView] = []
+        for edge in edges{
+            let views = self.addBorder(edges: edge, color: color, thickness: thickness, inset: inset)
+            allView.appendAll(views)
+        }
+        
+        return allView
+    }
+    
+    open func addBorder(edges: UIRectEdge, color: UIColor = UIColor.white, thickness: CGFloat = 1.0, inset: CGFloat = 0) -> [UIView] {
         
         var borders = [UIView]()
         
@@ -178,9 +188,9 @@ extension UIView{
                                                metrics: ["thickness": thickness],
                                                views: ["top": top]))
             addConstraints(
-                NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[top]-(0)-|",
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|-(inset)-[top]-(inset)-|",
                                                options: [],
-                                               metrics: nil,
+                                               metrics: ["inset": inset],
                                                views: ["top": top]))
             borders.append(top)
         }
@@ -194,9 +204,9 @@ extension UIView{
                                                metrics: ["thickness": thickness],
                                                views: ["left": left]))
             addConstraints(
-                NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[left]-(0)-|",
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|-(inset)-[left]-(inset)-|",
                                                options: [],
-                                               metrics: nil,
+                                               metrics: ["inset": inset],
                                                views: ["left": left]))
             borders.append(left)
         }
@@ -210,9 +220,9 @@ extension UIView{
                                                metrics: ["thickness": thickness],
                                                views: ["right": right]))
             addConstraints(
-                NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[right]-(0)-|",
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|-(inset)-[right]-(inset)-|",
                                                options: [],
-                                               metrics: nil,
+                                               metrics: ["inset": inset],
                                                views: ["right": right]))
             borders.append(right)
         }
@@ -226,9 +236,9 @@ extension UIView{
                                                metrics: ["thickness": thickness],
                                                views: ["bottom": bottom]))
             addConstraints(
-                NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[bottom]-(0)-|",
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|-(inset)-[bottom]-(inset)-|",
                                                options: [],
-                                               metrics: nil,
+                                               metrics: ["inset": inset],
                                                views: ["bottom": bottom]))
             borders.append(bottom)
         }

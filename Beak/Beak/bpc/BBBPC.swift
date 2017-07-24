@@ -247,7 +247,7 @@ open class BBBPCClient{
         let requestBodyJsonString = Mapper().toJSONString(requestBody)
         let urlString = self.buildUrl(self.urlPath!)
         
-        XCGLogger.info("request url: \(urlString) -> params request body is :\(requestBodyJsonString)")
+        XCGLogger.info("request url: \(urlString) -> params request body is :\(requestBodyJsonString ?? "")")
         
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
@@ -259,7 +259,7 @@ open class BBBPCClient{
         
         Alamofire.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
             
-            guard var bpcInnerResponse = response.result.value else{
+            guard let bpcInnerResponse = response.result.value else{
                 let error = response.result.error
                 XCGLogger.error(error)
                 

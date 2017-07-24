@@ -327,4 +327,26 @@ extension UIView{
         
         return currentAnimation.nextDelayedAnimation!
     }
+    
+    /**
+     Creates and runs an animation which allows other animations to be chained to it and to each other.
+     
+     :param: duration The animation duration in seconds
+     :param: timing A UIViewAnimationOptions bitmask (check UIView.animationWithDuration:delay:options:animations:completion: for more info)
+     :param: animations Animation closure
+     :param: completion Completion closure of type (Bool)->Void
+     
+     :returns: The created request.
+     */
+    public class func animate(withDuration duration: TimeInterval, timingFunction: CAMediaTimingFunction, animations: @escaping () -> Void, completion: (() -> Void)?) -> Void {
+        
+        UIView.beginAnimations(nil, context: nil)
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(duration)
+        CATransaction.setAnimationTimingFunction(timingFunction)
+        CATransaction.setCompletionBlock(completion)
+        animations()
+        CATransaction.commit()
+        UIView.commitAnimations()
+    }
 }
