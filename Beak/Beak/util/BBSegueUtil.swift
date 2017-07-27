@@ -56,6 +56,18 @@ open class BBSegueUtil {
         
     }
     
+    open class func getCurrentNavigationController() -> UINavigationController?{
+        if let currentVC = getCurrentViewController(){
+            if currentVC.isKind(of: UINavigationController.self){
+                return (currentVC as! UINavigationController)
+            }else{
+                return currentVC.navigationController
+            }
+        }
+        return nil
+        
+    }
+    
     open class func pushForNewNav(to: UIViewController, animated: Bool = true){
         let nav = UINavigationController(rootViewController: to)
         self.pushTo(to: nav)
@@ -152,23 +164,10 @@ open class BBSegueUtil {
         }
     }
     
-    open class func popTo(_ from: UIViewController, toType: UIViewController.Type, animated: Bool = true){
-        var nav: UINavigationController?
-        
-        if from.isKind(of: UINavigationController.self){
-            nav = from as? UINavigationController
-        }else{
-            nav = from.navigationController
+    open class func popTo(_ from: UIViewController, toType: UIViewController.Type, animated: Bool = true){        
+        if let vc = getFirstVCFromCurrentNavigationController(toType){
+            popTo(from, to: vc, animated: animated)
         }
-        
-        guard let currentNav = nav else {return}
-        for vc in currentNav.viewControllers{
-            if vc.isKind(of: toType){
-                popTo(from, to: vc, animated: animated)
-                return
-            }
-        }
-        
     }
     
     open class func popTo(_ from: UIViewController, to: UIViewController, animated: Bool = true){
@@ -177,6 +176,23 @@ open class BBSegueUtil {
             from.popToViewController(to, animated: animated)
         }else{
             let _ = from.navigationController?.popToViewController(to, animated: animated)
+        }
+    }
+    
+    open class func getFirstVCFromCurrentNavigationController(_ type: UIViewController.Type) -> UIViewController?{
+        if let currentNav = getCurrentNavigationController(){
+            for vc in currentNav.viewControllers{
+                if vc.isKind(of: type){
+                    return vc
+                }
+            }
+        }
+        return nil
+    }
+    
+    open class func removeVCFromCurrentNavigationController(_ vc: UIViewController){
+        if let currentNav = getCurrentNavigationController(){
+            currentNav.viewControllers.removeObject(vc)
         }
     }
 }
