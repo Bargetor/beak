@@ -29,6 +29,16 @@ extension UIView {
         return panGR
     }
     
+    @discardableResult
+    open func setSwipeGesture(for direction: UISwipeGestureRecognizerDirection, target: AnyObject?, selector: Selector) -> UISwipeGestureRecognizer{
+        self.isUserInteractionEnabled = true
+        let swipe = UISwipeGestureRecognizer(target: target, action: selector)
+        swipe.direction = direction
+        self.addGestureRecognizer(swipe)
+        
+        return swipe
+    }
+    
     open func removeAllSubView(){
         for subview in self.subviews{
             subview.removeFromSuperview()
@@ -65,6 +75,7 @@ extension UIView{
         //如果点击的点 在 新的bounds里，就返回YES
         return bounds.contains(point)
     }
+    
 }
 
 public var isAutoAdjustMinTouchRect: Bool = false
@@ -78,12 +89,14 @@ extension UIImageView{
         }
     }
     
+    
+    
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
         if let auto = self.autoAdjustMinTouchRect, !auto{
             return super.point(inside: point, with: event)
         }else{
-           return self.inMinTouchRect(inside: point)
+            return self.inMinTouchRect(inside: point)
         }
     }
 }
@@ -98,7 +111,7 @@ public extension UILabel{
         }
     }
     
-    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
         if let auto = self.autoAdjustMinTouchRect, !auto{
             return super.point(inside: point, with: event)
