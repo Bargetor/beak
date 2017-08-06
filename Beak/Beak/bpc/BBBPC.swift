@@ -136,6 +136,7 @@ open class BPCError: Mappable {
     open var status: Int?
     open var msg: String?
     open var errorName: String?
+    open var originError: Error?
     
     public init(){
         
@@ -189,6 +190,7 @@ open class BBBPCClient{
     open var urlPath: String?
     
     open var userid: Int?
+    
     open var token: String?
     
     open var timeout: TimeInterval = 10
@@ -217,7 +219,7 @@ open class BBBPCClient{
             
             if let success = success{
                 success(result, response?.error)
-                self.processError(response?.error)
+                self.processError(response?.error, for: method)
             }
             
             
@@ -233,7 +235,7 @@ open class BBBPCClient{
             
             if let success = success{
                 success(results, response?.error)
-                self.processError(response?.error)
+                self.processError(response?.error, for: method)
             }
         })
     }
@@ -266,6 +268,7 @@ open class BBBPCClient{
                 let errorResponse = BPCInnerResponse()
                 errorResponse.error = BPCError()
                 errorResponse.error?.msg = error.debugDescription
+                errorResponse.error?.originError = error
                 
                 success(errorResponse)
                 return
@@ -277,13 +280,13 @@ open class BBBPCClient{
     }
     
     
-    fileprivate func processError(_ error: BPCError?){
+    fileprivate func processError(_ error: BPCError?, for method: String){
         guard let error = error else{
             return
         }
         
         for handler in self.errorHandlers {
-            handler.handler(error)
+            handler.handler(error, for: method)
         }
     }
     
@@ -323,7 +326,7 @@ open class BBBPCClient{
 }
 
 public protocol BBBPCErrorHandler{
-    func handler(_ error: BPCError)
+    func handler(_ error: BPCError, for method: String)
 }
 
 open class BBBPCMethodGroup{
