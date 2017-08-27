@@ -89,7 +89,13 @@ open class BBSegueUtil {
             if let navDelegate = navigationDelegate{
                 from.navigationController?.delegate = navDelegate
             }
-            from.navigationController?.pushViewController(to, animated: animated)
+            
+            if from.navigationController == nil && from.presentingViewController is UINavigationController{
+                (from.presentingViewController as? UINavigationController)?.pushViewController(to, animated: animated)
+            }else{
+                from.navigationController?.pushViewController(to, animated: animated)
+            }
+            
         }
         
     }
