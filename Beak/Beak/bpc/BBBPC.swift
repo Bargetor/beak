@@ -210,8 +210,8 @@ open class BBBPCClient{
         self.errorHandlers.append(handler)
     }
     
-    open func request<T: Mappable>(_ method: String, params: BPCParams, success: ((_ result: T?, _ error: BPCError?) -> Void)?){
-        self.baseRequest(method, params: params, success: {response in
+    open func request<T: Mappable>(_ method: BBBPCMethod<T>, params: BPCParams, success: ((_ result: T?, _ error: BPCError?) -> Void)?){
+        self.baseRequest(method.method, params: params, success: {response in
             var result: T?
             if let resultJson = response?.result{
                 result = Mapper<T>().map(JSONObject: resultJson)
@@ -219,15 +219,15 @@ open class BBBPCClient{
             
             if let success = success{
                 success(result, response?.error)
-                self.processError(response?.error, for: method)
+                self.processError(response?.error, for: method.method, isIgnoreErrorHandler: method.isIgnoreErrorHandler)
             }
             
             
         })
     }
     
-    open func requestArray<T: Mappable>(_ method: String, params: BPCParams, success: ((_ results: [T]?, _ error: BPCError?) -> Void)?){
-        self.baseRequest(method, params: params, success: {response in
+    open func requestArray<T: Mappable>(_ method: BBBPCMethodForArray<T>, params: BPCParams, success: ((_ results: [T]?, _ error: BPCError?) -> Void)?){
+        self.baseRequest(method.method, params: params, success: {response in
             var results: [T]?
             if let resultsJson = response?.result{
                 results = Mapper<T>().mapArray(JSONObject: resultsJson)
@@ -235,11 +235,10 @@ open class BBBPCClient{
             
             if let success = success{
                 success(results, response?.error)
-                self.processError(response?.error, for: method)
+                self.processError(response?.error, for: method.method, isIgnoreErrorHandler: method.isIgnoreErrorHandler)
             }
         })
     }
-    
     
     fileprivate func baseRequest(_ method: String, params: BPCParams, success: @escaping (_ response: BPCInnerResponse?) -> Void){
         
@@ -280,13 +279,15 @@ open class BBBPCClient{
     }
     
     
-    fileprivate func processError(_ error: BPCError?, for method: String){
+    fileprivate func processError(_ error: BPCError?, for method: String, isIgnoreErrorHandler: Bool = false){
         guard let error = error else{
             return
         }
         
-        for handler in self.errorHandlers {
-            handler.handler(error, for: method)
+        if !isIgnoreErrorHandler{
+            for handler in self.errorHandlers {
+                handler.handler(error, for: method)
+            }
         }
     }
     
@@ -350,19 +351,31 @@ public protocol BBBPCMethodProtocol{
     
     func afterCallBack(_ result: ResultType?, error: BPCError?)
     
+    func with(isIgnoreErrorHandler: Bool) -> Self
+    
+    var isIgnoreErrorHandler: Bool {get set}
+    
+    var method: String {get set}
 }
 
 open class BBBPCMethod<R: Mappable> : BBBPCMethodProtocol{
     public typealias ResultType = R
     
-    open var method: String
-    open var client: BBBPCClient
+    public var method: String
+    public var client: BBBPCClient
     fileprivate var callback: ((R?, BPCError?) -> Void)?
     fileprivate var otherCompletion: [() -> Void] = []
+    
+    public var isIgnoreErrorHandler: Bool = false
     
     public init(method: String, client: BBBPCClient){
         self.method = method
         self.client = client
+    }
+    
+    public func with(isIgnoreErrorHandler: Bool) -> Self{
+        self.isIgnoreErrorHandler = isIgnoreErrorHandler
+        return self
     }
     
     open func addOtherCompletion(_ completion: (() -> Void)?){
@@ -378,7 +391,7 @@ open class BBBPCMethod<R: Mappable> : BBBPCMethodProtocol{
     public final func request(_ params: BPCParams) {
         self.beforeRequest()
         
-        self.client.request(self.method, params: params, success: {(result: ResultType?, error) -> Void in
+        self.client.request(self, params: params, success: {(result: ResultType?, error) -> Void in
             self.afterRequest(result, error: error)
             if let callback = self.callback{
                 callback(result, error)
@@ -410,9 +423,16 @@ open class BBBPCMethodForArray<R: Mappable>: BBBPCMethodProtocol{
     fileprivate var callback: ((_ result: Array<R>?, _ error: BPCError?) -> Void)?
     fileprivate var otherCompletion: [() -> Void] = []
     
+    public var isIgnoreErrorHandler: Bool = false
+    
     public init(method: String, client: BBBPCClient){
         self.method = method
         self.client = client
+    }
+    
+    public func with(isIgnoreErrorHandler: Bool) -> Self{
+        self.isIgnoreErrorHandler = isIgnoreErrorHandler
+        return self
     }
     
     open func addOtherCompletion(_ completion: (() -> Void)?){
@@ -428,7 +448,7 @@ open class BBBPCMethodForArray<R: Mappable>: BBBPCMethodProtocol{
     public final func request(_ params: BPCParams) {
         self.beforeRequest()
         
-        self.client.requestArray(self.method, params: params, success: {(result: ResultType?, error) -> Void in
+        self.client.requestArray(self, params: params, success: {(result: ResultType?, error) -> Void in
             self.afterRequest(result, error: error)
             if let callback = self.callback{
                 callback(result, error)

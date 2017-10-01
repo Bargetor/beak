@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date{
-    public func format(formatStr: String, isForUTC: Bool = true) -> String{
+    public func format(formatStr: String, isForUTC: Bool = false) -> String{
         let format = DateFormatter()
         format.dateFormat = formatStr
         if isForUTC{
