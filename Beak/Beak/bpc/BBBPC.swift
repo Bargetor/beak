@@ -246,7 +246,7 @@ open class BBBPCClient{
         requestBody.method = method
         requestBody.params = params
         let requestBodyJsonString = Mapper().toJSONString(requestBody)
-        let urlString = self.buildUrl(self.urlPath!)
+        let urlString = self.buildUrl(self.urlPath!, bpcMethod: method)
         
         XCGLogger.info("request url: \(urlString) -> params request body is :\(requestBodyJsonString ?? "")")
         
@@ -316,11 +316,18 @@ open class BBBPCClient{
     /**
      * 如果设置了server, 调用的url 将会被视为 path, 最后请求地址是 server + path
      **/
-    fileprivate func buildUrl(_ url: String) -> String{
+    fileprivate func buildUrl(_ url: String, bpcMethod: String) -> String{
+        var finally = url
         if self.server != nil {
-            return self.server! + url
+            finally = self.server! + finally
         }
-        return url
+        if finally.last != "/" {
+            finally += "/"
+        }
+        
+        finally += bpcMethod.replacingOccurrences(of: ".", with: "/")
+        
+        return finally
     }
     
     
