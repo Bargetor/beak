@@ -8,6 +8,25 @@
 
 import Foundation
 
+public func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
+    var i = 0
+    return AnyIterator {
+        let next = withUnsafeBytes(of: &i) { $0.load(as: T.self) }
+        if next.hashValue != i { return nil }
+        i += 1
+        return next
+    }
+}
+
+public func arrayEnum<T: Hashable>(_ em: T.Type) -> Array<T> {
+    var array: [T] = []
+    for e in iterateEnum(em){
+        array.append(e)
+    }
+    
+    return array
+}
+
 extension Array{
     
     public func subArrayWithRange(_ location: Int, length: Int) -> Array<Element>?{

@@ -59,15 +59,15 @@ extension UIView{
         return contentRect.size
     }
     
-    open func inMinTouchRect(inside point: CGPoint) -> Bool{
+    open func inMinTouchRect(inside point: CGPoint, minBounds: CGSize = CGSize(width: 44.0, height: 44.0)) -> Bool{
         
         //获取当前button的实际大小
         var bounds = self.bounds
         
         //若原热区小于44x44，则放大热区，否则保持原大小不变
-        let widthDelta = max(44.0 - bounds.size.width, 0)
+        let widthDelta = max(minBounds.width - bounds.size.width, 0)
         
-        let heightDelta = max(44.0 - bounds.size.height, 0)
+        let heightDelta = max(minBounds.height - bounds.size.height, 0)
         
         //扩大bounds
         bounds = bounds.insetBy(dx: -0.5 * widthDelta, dy: -0.5 * heightDelta)
