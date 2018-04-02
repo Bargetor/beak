@@ -266,7 +266,7 @@ open class BBBPCClient{
                 
                 let errorResponse = BPCInnerResponse()
                 errorResponse.error = BPCError()
-                errorResponse.error?.msg = error.debugDescription
+                errorResponse.error?.msg = error?.localizedDescription
                 errorResponse.error?.originError = error
                 
                 success(errorResponse)
