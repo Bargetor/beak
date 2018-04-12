@@ -10,50 +10,73 @@ import Foundation
 
 open class BBSegueUtil {
     
+//    open class func getCurrentViewController() -> UIViewController?{
+//        var vcResult: UIViewController? = nil
+//        guard var window = UIApplication.shared.keyWindow else{
+//            return vcResult
+//        }
+//
+//        if window.windowLevel != UIWindowLevelNormal {
+//            for tempWindow in UIApplication.shared.windows{
+//                if tempWindow.windowLevel == UIWindowLevelNormal{
+//                    window = tempWindow
+//                    break
+//                }
+//            }
+//        }
+//
+//        guard let frontView = window.subviews.last else{
+//            return vcResult
+//        }
+//
+//        var nextResponder = frontView.next
+//
+//        while ((nextResponder?.next) != nil) {
+//            nextResponder = nextResponder?.next
+//        }
+//
+//        if nextResponder!.isKind(of: UIViewController.self){
+//            vcResult = nextResponder as? UIViewController
+//        }else{
+//            vcResult = window.rootViewController
+//        }
+//
+//
+//        if vcResult!.isKind(of: UINavigationController.self){
+//            vcResult = vcResult?.childViewControllers.last
+//        }
+//
+//        if(vcResult?.presentedViewController != nil){
+//            return vcResult?.presentedViewController
+//        }else if(vcResult?.presentingViewController != nil){
+//            return vcResult?.presentingViewController
+//        }else{
+//            return vcResult
+//        }
+//
+//    }
+    
     open class func getCurrentViewController() -> UIViewController?{
-        var vcResult: UIViewController? = nil
-        guard var window = UIApplication.shared.keyWindow else{
-            return vcResult
+        return getCurrentViewController(from: UIApplication.shared.keyWindow?.rootViewController)
+    }
+    
+    open class func getCurrentViewController(from rootVC: UIViewController?) -> UIViewController?{
+        guard let rootVC = rootVC else { return nil }
+        var currentVC: UIViewController?
+        var currentRootVC: UIViewController? = rootVC
+        if ((rootVC.presentedViewController) != nil) {
+            currentRootVC = rootVC.presentedViewController
         }
         
-        if window.windowLevel != UIWindowLevelNormal {
-            for tempWindow in UIApplication.shared.windows{
-                if tempWindow.windowLevel == UIWindowLevelNormal{
-                    window = tempWindow
-                    break
-                }
-            }
-        }
-        
-        guard let frontView = window.subviews.last else{
-            return vcResult
-        }
-        
-        var nextResponder = frontView.next
-        
-        while ((nextResponder?.next) != nil) {
-            nextResponder = nextResponder?.next
-        }
-        
-        if nextResponder!.isKind(of: UIViewController.self){
-            vcResult = nextResponder as? UIViewController
+        if currentRootVC is UITabBarController{
+            currentVC = getCurrentViewController(from: (currentRootVC as? UITabBarController)?.selectedViewController)
+        }else if currentRootVC is UINavigationController{
+            currentVC = getCurrentViewController(from: (currentRootVC as? UINavigationController)?.visibleViewController)
         }else{
-            vcResult = window.rootViewController
+            currentVC = currentRootVC
         }
         
-        
-        if vcResult!.isKind(of: UINavigationController.self){
-            vcResult = vcResult?.childViewControllers.last
-        }
-        
-        if(vcResult?.presentedViewController != nil){
-            return vcResult?.presentedViewController
-        }else if(vcResult?.presentingViewController != nil){
-            return vcResult?.presentingViewController
-        }else{
-            return vcResult
-        }
-        
+        return currentVC
     }
     
     open class func getCurrentNavigationController() -> UINavigationController?{
