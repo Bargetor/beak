@@ -29,6 +29,12 @@ public func arrayEnum<T: Hashable>(_ em: T.Type) -> Array<T> {
 
 extension Array{
     
+    public func random() -> Element?{
+        if self.isEmpty { return nil }
+        let randomIndex = Int(arc4random_uniform(UInt32(self.count)))
+        return self[randomIndex]
+    }
+    
     public func subArrayWithRange(_ location: Int, length: Int) -> Array<Element>?{
         let count = self.count
         if(location >= count){

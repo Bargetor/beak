@@ -71,7 +71,7 @@ open class BBSegueUtil {
         if currentRootVC is UITabBarController{
             currentVC = getCurrentViewController(from: (currentRootVC as? UITabBarController)?.selectedViewController)
         }else if currentRootVC is UINavigationController{
-            currentVC = getCurrentViewController(from: (currentRootVC as? UINavigationController)?.visibleViewController)
+            currentVC = getCurrentViewController(from: (currentRootVC as? UINavigationController)?.topViewController)
         }else{
             currentVC = currentRootVC
         }
@@ -129,13 +129,18 @@ open class BBSegueUtil {
         }
     }
     
-    open class func present(_ from: UIViewController, to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
-        if from.isKind(of: UINavigationController.self){
-            let from = from as! UINavigationController
-            from.present(to, animated: animated, completion: completion)
+    open class func present(_ from: UIViewController, to: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+        if from.presentedViewController != nil{
+            present(from.presentedViewController!, to: to, animated: animated, completion: completion)
         }else{
-            from.navigationController?.present(to, animated: animated, completion: completion)
+            from.present(to, animated: animated, completion: completion)
         }
+//        if from.isKind(of: UINavigationController.self){
+//            let from = from as! UINavigationController
+//            from.present(to, animated: animated, completion: completion)
+//        }else{
+//            from.navigationController?.present(to, animated: animated, completion: completion)
+//        }
     }
     
     open class func presentForNewNav(to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
