@@ -18,6 +18,7 @@ open class BPCRequest: Mappable {
     var bpc: String?
     var id: String?
     var meta: BPCRequestMeta?
+    var device: BPCDeviceInfo = BPCDeviceInfo()
     var method: String?
     var api: String?
     var params: BPCParams?
@@ -36,6 +37,7 @@ open class BPCRequest: Mappable {
         id     <- map["id"]
         method <- map["method"]
         meta   <- map["meta"]
+        device <- map["device"]
         api    <- map["api"]
         params <- map["params"]
     }
@@ -57,6 +59,43 @@ open class BPCRequestMeta: Mappable{
     open func mapping(map: Map) {
         userid <- map["userid"]
         token  <- map["token"]
+    }
+}
+
+open class BPCDeviceInfo: BPCParams{
+    var deviceName: String?
+    var systemName: String?
+    var systemVersion: String?
+    var deviceModel: String?
+    var deviceId: String?
+    var appVersion: String?
+    
+    public override init() {
+        super.init()
+        self.initDefualtData()
+    }
+    
+    required public init?(map: Map) {
+        super.init(map: map)
+        self.initDefualtData()
+    }
+    
+    func initDefualtData(){
+        self.deviceName = UIDevice.current.name
+        self.deviceModel = UIDevice.current.model
+        self.deviceId = UIDevice.current.identifierForVendor!.uuidString
+        self.systemName = UIDevice.current.systemName
+        self.systemVersion = UIDevice.current.systemVersion
+        self.appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
+    }
+    
+    open override func mapping(map: Map) {
+        deviceName      <- map["deviceName"]
+        deviceModel     <- map["deviceModel"]
+        deviceId        <- map["deviceId"]
+        systemName      <- map["systemName"]
+        systemVersion   <- map["systemVersion"]
+        appVersion      <- map["appVersion"]
     }
 }
 
