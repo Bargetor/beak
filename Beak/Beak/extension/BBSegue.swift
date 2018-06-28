@@ -41,6 +41,10 @@ extension UIViewController{
     public func pop(vc to: UIViewController){
         BBSegueUtil.popTo(self, to: to)
     }
+    
+    public func presentForRootNav(to: UIViewController, animated: Bool = true, completion: (() -> Swift.Void)? = nil){
+        UIApplication.shared.keyWindow?.rootViewController?.present(to, animated: animated, completion: completion)
+    }
 }
 
 extension UIView{
