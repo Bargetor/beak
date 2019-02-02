@@ -535,7 +535,7 @@ open class BBBPCRequester<T: BBBPCMethodProtocol>{
 
 
 open class BPCDateTransform: DateTransform {
-    open static let share: BPCDateTransform = BPCDateTransform()
+    public static let share: BPCDateTransform = BPCDateTransform()
     
     open override func transformFromJSON(_ value: Any?) -> Date? {
         if let timeInt = value as? Double {

@@ -11,11 +11,11 @@ import Foundation
 extension CGFloat {
     
     public func toRadians() -> CGFloat {
-        return (self * CGFloat(M_PI)) / 180.0
+        return (self * CGFloat.pi) / 180.0
     }
     
     public func toDegrees() -> CGFloat {
-        return self * 180.0 / CGFloat(M_PI)
+        return self * 180.0 / CGFloat.pi
     }
     
 }

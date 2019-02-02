@@ -11,8 +11,8 @@ import Foundation
 extension String {
     
     public func substringWithRange(_ range: NSRange) -> String! {
-        let r = (self.characters.index(self.startIndex, offsetBy: range.location) ..< self.characters.index(self.startIndex, offsetBy: range.location + range.length))
-        return self.substring(with: r)
+        let r = (self.index(self.startIndex, offsetBy: range.location) ..< self.index(self.startIndex, offsetBy: range.location + range.length))
+        return String(self[r])
     }
     
     public func urlencode() -> String {
@@ -23,7 +23,7 @@ extension String {
     }
     
     public func length() -> Int{
-        return self.characters.count
+        return self.count
     }
     
     public func format(arguments: CVarArg...) -> String{
@@ -31,7 +31,7 @@ extension String {
     }
     
     public mutating func replaceSubrange(_ range: NSRange, with replacementString: String) -> String {
-        if(range.location >= self.characters.count){
+        if(range.location >= self.count){
             self.append(replacementString)
             return self
         }

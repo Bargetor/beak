@@ -29,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2B040C2822044DB000F4460A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BA0F8701DF5C521006BCB5E /* ObjectMapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DBB9B41F2142A25100078E5A;
+			remoteInfo = "ObjectMapper-Mac-Static";
+		};
 		2B58A21A21607F1B0050A629 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2B58A20B21607F1B0050A629 /* XCGLogger.xcodeproj */;
@@ -345,8 +352,9 @@
 				2BA0F87F1DF5C521006BCB5E /* ObjectMapper.framework */,
 				2BA0F8811DF5C521006BCB5E /* ObjectMapper.framework */,
 				2BA0F8831DF5C521006BCB5E /* ObjectMapper-iOSTests.xctest */,
-				2BA0F8851DF5C521006BCB5E /* ObjectMapper-MacTests.xctest */,
+				2BA0F8851DF5C521006BCB5E /* ObjectMapper-macOSTests.xctest */,
 				2BA0F8871DF5C521006BCB5E /* ObjectMapper-tvOSTests.xctest */,
+				2B040C2922044DB000F4460A /* libObjectMapper.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -492,7 +500,7 @@
 					};
 					2BAC25701DF5A73500655F19 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = V8SUBFL28G;
+						DevelopmentTeam = VBPAL482H3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -530,6 +538,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2B040C2922044DB000F4460A /* libObjectMapper.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libObjectMapper.a;
+			remoteRef = 2B040C2822044DB000F4460A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		2B58A21B21607F1B0050A629 /* XCGLogger.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -698,10 +713,10 @@
 			remoteRef = 2BA0F8821DF5C521006BCB5E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2BA0F8851DF5C521006BCB5E /* ObjectMapper-MacTests.xctest */ = {
+		2BA0F8851DF5C521006BCB5E /* ObjectMapper-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "ObjectMapper-MacTests.xctest";
+			path = "ObjectMapper-macOSTests.xctest";
 			remoteRef = 2BA0F8841DF5C521006BCB5E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -852,7 +867,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = V8SUBFL28G;
+				DEVELOPMENT_TEAM = VBPAL482H3;
 				INFOPLIST_FILE = BeakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bargetor.ios.BeakTests;
@@ -935,7 +950,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = V8SUBFL28G;
+				DEVELOPMENT_TEAM = VBPAL482H3;
 				INFOPLIST_FILE = BeakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bargetor.ios.BeakTests;
@@ -1048,7 +1063,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1095,7 +1110,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = V8SUBFL28G;
+				DEVELOPMENT_TEAM = VBPAL482H3;
 				INFOPLIST_FILE = BeakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bargetor.ios.BeakTests;
@@ -1108,7 +1123,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = V8SUBFL28G;
+				DEVELOPMENT_TEAM = VBPAL482H3;
 				INFOPLIST_FILE = BeakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bargetor.ios.BeakTests;

@@ -30,7 +30,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func setSwipeGesture(for direction: UISwipeGestureRecognizerDirection, target: AnyObject?, selector: Selector) -> UISwipeGestureRecognizer{
+    open func setSwipeGesture(for direction: UISwipeGestureRecognizer.Direction, target: AnyObject?, selector: Selector) -> UISwipeGestureRecognizer{
         self.isUserInteractionEnabled = true
         let swipe = UISwipeGestureRecognizer(target: target, action: selector)
         swipe.direction = direction

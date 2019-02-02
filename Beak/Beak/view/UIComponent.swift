@@ -30,6 +30,8 @@ import Foundation
     func viewDidLayout()
 }
 
+
+
 @objc public protocol UIComponentForViewController{
     //ui view controller 只能继承与重写这个方法
     func initUITemplate(_ withViewModel: UIViewModel?)
