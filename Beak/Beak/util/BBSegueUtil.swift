@@ -123,6 +123,16 @@ open class BBSegueUtil {
         
     }
     
+    open class func isCurrentVCModal() -> Bool{
+        guard let vc = getCurrentViewController() else { return false }
+        
+        if (vc.presentingViewController != nil && vc.presentedViewController != nil) { return true }
+        if (vc.navigationController?.presentingViewController?.presentedViewController == vc.navigationController) { return true }
+        if (vc.tabBarController?.presentingViewController?.isKind(of: UITabBarController.self) ?? false) {return true }
+        
+        return false
+    }
+    
     open class func present(to: UIViewController, animated: Bool = true,  completion: (() -> Void)? = nil) {
         if let from = getCurrentViewController(){
             present(from, to: to, animated: animated, completion: completion)
