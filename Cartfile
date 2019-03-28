@@ -1,5 +1,5 @@
 # github "Alamofire/Alamofire" ~> 4.2.0
 # github "Hearst-DD/ObjectMapper" ~> 2.2.0
-github "tristanhimmelman/AlamofireObjectMapper" ~> 5.2
+github "tristanhimmelman/AlamofireObjectMapper" ~> 6.0
 github "DaveWoodCom/XCGLogger" ~> 6.1.0
 # github "ReactiveKit/Bond" ~> 5.3.1
