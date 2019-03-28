@@ -296,8 +296,7 @@ open class BBBPCClient{
         urlRequest.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
         urlRequest.timeoutInterval = self.timeout
         
-        
-        Alamofire.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
+        AF.request(urlRequest).responseObject{ (response: DataResponse<BPCInnerResponse>) in
             
             guard let bpcInnerResponse = response.result.value else{
                 let error = response.result.error
