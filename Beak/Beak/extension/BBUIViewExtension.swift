@@ -135,6 +135,12 @@ public extension UIImage {
     }
 }
 
+public extension UIColor{
+    public func toImage() -> UIImage{
+        return UIImage(color: self) ?? UIImage()
+    }
+}
+
 extension UIButton{
     public var autoAdjustMinTouchRect: Bool?{
         get{
